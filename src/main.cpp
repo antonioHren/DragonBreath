@@ -1,7 +1,15 @@
 #include <Arduino.h>
+#include "display.h"
 
 #define POT_PIN 34
 #define RESET_BUTTON_PIN 25
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+// Definiranje SDA i SCL pinova
+#define I2C_SDA 8
+#define I2C_SCL 9
 
 //konstante
 const float EMA_ALPHA = 0.15;
@@ -29,6 +37,9 @@ unsigned long previousTime = 0;
 
 unsigned long successStartTime = 0;
 unsigned long lowFlowStartTime = 0;
+
+
+GameState currentState = IDLE;
 
 //ocitavanje senzora
 
@@ -90,15 +101,21 @@ bool isStable()
 
 void updateExercise()
 {
+
     if(exerciseSuccess || exerciseFailed)
-        return;
+    {
+      return;
+    }
 
     unsigned long now = millis();
+
+    changeState(INHALE);
 
 //fail uvjeti
     if(flowRate > FLOW_THRESHOLD_FAIL)
     {
         exerciseFailed = true;
+        changeState(FAILED);
         return;
     }
 
@@ -114,6 +131,7 @@ void updateExercise()
         if(now - lowFlowStartTime >= LOW_FLOW_TIME)
         {
             exerciseFailed = true;
+        changeState(FAILED);
         }
 
         successStartTime = 0;
@@ -136,6 +154,7 @@ void updateExercise()
 
         if(now - successStartTime >= SUCCESS_TIME)
         {
+            changeState(SUCCESS);
             exerciseSuccess = true;
         }
     }
@@ -158,6 +177,7 @@ void resetExercise()
     volume = 0;
 
     firstStableRun = true;
+
 }
 
 //api
@@ -187,6 +207,39 @@ bool isExerciseFailed()
     return exerciseFailed;
 }
 
+String getStateAsString() 
+{
+    switch(currentState) {
+      case IDLE: return "IDLE";
+        break;
+      case INHALE: return "INHALE";
+        break;
+      case SUCCESS: return "SUCCESS";
+        break;
+      case FAILED: return "FAILED";
+        break;
+    }
+}
+
+void changeState(GameState newState) 
+{
+  if (currentState == newState) return;
+
+  String debugInfo = "Changed state: " + getStateAsString() + " => ";
+  
+  currentState = newState;
+
+  debugInfo = debugInfo + getStateAsString();
+  Serial.println(debugInfo);
+  /*
+  Serial.print("Changed state: ");
+  Serial.print(getStateAsString());
+  Serial.print(" => ");
+  currentState = newState;
+  Serial.print(getStateAsString());
+  */
+}
+
 
 void setup()
 {
@@ -199,6 +252,8 @@ void setup()
     Serial.println("Spirometer logic started");
 
     pinMode(RESET_BUTTON_PIN, INPUT_PULLUP);
+
+    display_init(); 
 }
 
 void loop()
@@ -209,39 +264,49 @@ void loop()
       ESP.restart();
       
   }
-    readSensor();
+  readSensor();
 
-    calculateFlow();
+  calculateFlow();
 
-    calculateVolume();
-
-    updateExercise();
-
-    Serial.print("Flow=");
-    Serial.print(flowRate, 1);
-
-    Serial.print(" ml/s");
-
-    Serial.print(" | Volume=");
-    Serial.print(volume, 0);
-
-    Serial.print(" ml");
-
-    Serial.print(" | Stable=");
-    Serial.print(isStable());
-
-    Serial.print(" | Success=");
-    Serial.print(exerciseSuccess);
-
-    Serial.print(" | Failed=");
-    Serial.println(exerciseFailed);
-
-    //reset ako se vrati potenciometar na sredinu
-
-    if(flowRate < 50 &&
-       (exerciseSuccess || exerciseFailed))
+  //reset ako se vrati potenciometar na sredinu
+  if(flowRate < 50)
+  {
+    if (currentState != IDLE) 
+      {
+          changeState(IDLE);
+          resetExercise();
+      }
+  }
+  else 
+  {
+    if (!exerciseSuccess && !exerciseFailed) 
     {
-        resetExercise();
+        calculateVolume();
+        updateExercise();
     }
-}
+  }
 
+  unsigned long displayTime = (successStartTime > 0) ? (millis() - successStartTime) : 0;
+  display_update(currentState, flowRate, displayTime);
+  
+/*
+  Serial.print("Flow=");
+  Serial.print(flowRate, 1);
+
+  Serial.print(" ml/s");
+
+  Serial.print(" | Volume=");
+  Serial.print(volume, 0);
+
+  Serial.print(" ml");
+
+  Serial.print(" | Stable=");
+  Serial.print(isStable());
+
+  Serial.print(" | Success=");
+  Serial.print(exerciseSuccess);
+
+  Serial.print(" | Failed=");
+  Serial.println(exerciseFailed);
+  */  
+}
