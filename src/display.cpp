@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
+#include <TM1637.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -10,6 +11,13 @@
 // Definiranje SDA i SCL pinova
 #define I2C_SDA 4
 #define I2C_SCL 5
+
+// Definiranje CLK i DIO pinova 4-digit display-a
+#define FDD_CLK 19
+#define FDD_DIO 18
+
+TM1637 tm(FDD_CLK, FDD_DIO);
+
 
 Adafruit_SSD1306 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
@@ -51,9 +59,14 @@ void display_init() {
   
   oled.clearDisplay();
   oled.setTextColor(WHITE);
+
+  // Inicijalizacija FDD
+  tm.init();
+  tm.setBrightness(3);
+  tm.display(0);
 }
 
-void display_update(GameState state, float targetFlow, float duration) {
+void display_update(GameState state, float targetFlow, float duration, int score, bool isNewHigh, bool tooStrongFail) {
   // 1. Matematički model inercije (zaglađivanje)
   currentDisplayFlow += (targetFlow - currentDisplayFlow) * INERTIA_FACTOR;
 
@@ -102,18 +115,21 @@ void display_update(GameState state, float targetFlow, float duration) {
       oled.setCursor(0, 0);
       oled.print(F("Vrijeme: "));
       oled.print(duration, 1);
-      oled.print(F("s"));
+      oled.print(F("ms"));
       break;
     }
 
     case SUCCESS:
     {
       oled.setCursor(15, 25);
-      oled.setTextSize(2);
-      oled.print(F("Pobjeda!"));
       oled.setTextSize(1);
+      oled.print(F("Zmaj istreniran!"));
+      oled.setTextSize(1);
+
+      tm.display(score);
       break;
     }
+    
     case FAILED:
     {
       oled.setCursor(15, 20);
@@ -121,7 +137,19 @@ void display_update(GameState state, float targetFlow, float duration) {
       oled.print(F("BOOM!"));
       oled.setTextSize(1);
       oled.setCursor(15, 45);
-      oled.print(F("Prejak udah!"));
+
+      if(isNewHigh){
+        oled.print(F("Novi rekord!"));
+      }else{
+
+        if(tooStrongFail){
+          oled.print(F("Prejak udah!"));
+        }else{
+          oled.print(F("Pre slab udah!"));
+        }
+
+      }
+
       break;
     }
   }
