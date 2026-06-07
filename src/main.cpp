@@ -208,11 +208,15 @@ void changeState(GameState newState)
   }
 
   // Provjera početka nove vježbe za reset i spremanje rezultata
-  if(currentState == FAILED && score > highScore)
+  if(currentState == FAILED)
   {
-    highScore = score;
-    saveHighScore(highScore);
+    if(score > highScore){
+      highScore = score;
+      saveHighScore(highScore);
+    }
+
     score = 0;
+    counter_reset();
   }
 
   String debugInfo = "Changed state: " + getStateAsString() + " => ";
