@@ -66,6 +66,11 @@ void display_init() {
   tm.display(0);
 }
 
+void counter_reset(){
+  tm.clearScreen();
+  tm.display(0);
+}
+
 void display_update(GameState state, float targetFlow, float duration, int score, bool isNewHigh, bool tooStrongFail) {
   // 1. Matematički model inercije (zaglađivanje)
   currentDisplayFlow += (targetFlow - currentDisplayFlow) * INERTIA_FACTOR;
