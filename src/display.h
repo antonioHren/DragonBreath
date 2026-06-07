@@ -11,6 +11,6 @@ enum GameState {
 };
 
 void display_init();
-void display_update(GameState state, float targetFlow, float duration);
+void display_update(GameState state, float targetFlow, float duration, int score, bool isNewHigh, bool tooStrongFail);
 
 #endif
