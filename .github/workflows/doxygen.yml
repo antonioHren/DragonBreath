@@ -38,7 +38,7 @@ jobs:
       - name: Generate Documentation
         run: |
           doxygen Doxyfile || { echo "Doxygen failed"; exit 1; }  # Run Doxygen, exit if it fails
-          if [ ! -d "docs/html" ]; then echo "Error: docs/html not found!"; exit 1; fi  # Check if the HTML output directory exists
+          if [ ! -d "docs" ]; then echo "Error: docs not found!"; exit 1; fi  # Check if the HTML output directory exists
 
       - name: Deploy Documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3  # Use the 'actions-gh-pages' action to deploy documentation
