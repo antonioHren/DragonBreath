@@ -1,38 +1,38 @@
 <map id="loop" name="loop">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,155,56,180"/>
-<area shape="rect" id="Node000002" href="$de/dfb/src_2main_8cpp.html#adb1f2c5093b4e3706b660d079c58f00b" title=" " alt="" coords="113,5,225,31"/>
+<area shape="rect" id="Node000002" href="$de/dfb/src_2main_8cpp.html#adb1f2c5093b4e3706b660d079c58f00b" title="Metoda za prevođenje vrijednosti potenciometra u protok zraka." alt="" coords="113,5,225,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="34,153,57,99,77,68,102,40,108,36,111,40,106,44,81,71,62,102,39,155"/>
-<area shape="rect" id="Node000003" href="$de/dfb/src_2main_8cpp.html#a8bf49e858da3651fa6deb0c11bb6d920" title=" " alt="" coords="104,55,235,80"/>
+<area shape="rect" id="Node000003" href="$de/dfb/src_2main_8cpp.html#a8bf49e858da3651fa6deb0c11bb6d920" title="Metoda za računanje ukupnog volumena ciklusa." alt="" coords="104,55,235,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="39,153,66,121,102,89,112,83,115,88,106,93,69,125,43,156"/>
-<area shape="rect" id="Node000004" href="$de/dfb/src_2main_8cpp.html#a903c5ec1f682a02fdf7213d99031ff8b" title=" " alt="" coords="283,204,385,229"/>
+<area shape="rect" id="Node000004" href="$de/dfb/src_2main_8cpp.html#a903c5ec1f682a02fdf7213d99031ff8b" title="Metoda za promjenu stanja sustava." alt="" coords="283,204,385,229"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="57,167,136,175,235,190,273,198,272,203,234,195,136,181,56,172"/>
 <area shape="rect" id="Node000012" href="$dc/d31/src_2display_8cpp.html#a8d829da9ed9c6497dfebb4448d67d54c" title=" " alt="" coords="109,104,230,129"/>
 <area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="55,156,120,132,122,137,57,161"/>
-<area shape="rect" id="Node000014" href="$de/dfb/src_2main_8cpp.html#a540664b2b5f0c7c04b0029e5dabc2a6a" title=" " alt="" coords="122,205,217,231"/>
+<area shape="rect" id="Node000014" href="$de/dfb/src_2main_8cpp.html#a540664b2b5f0c7c04b0029e5dabc2a6a" title="Metoda za očitavanje i filtriranje izlaza potenciometra." alt="" coords="122,205,217,231"/>
 <area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="57,174,122,198,120,203,55,179"/>
-<area shape="rect" id="Node000015" href="$de/dfb/src_2main_8cpp.html#a0eae2bb888f60d098e966fa99b2bef92" title=" " alt="" coords="115,255,224,280"/>
+<area shape="rect" id="Node000015" href="$de/dfb/src_2main_8cpp.html#a0eae2bb888f60d098e966fa99b2bef92" title="Metoda za reset podataka ciklusa." alt="" coords="115,255,224,280"/>
 <area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="43,178,70,209,106,240,117,247,114,251,102,244,66,212,39,182"/>
-<area shape="rect" id="Node000016" href="$de/dfb/src_2main_8cpp.html#a4abe703948db03edd331680d70b08318" title=" " alt="" coords="109,304,230,329"/>
+<area shape="rect" id="Node000016" href="$de/dfb/src_2main_8cpp.html#a4abe703948db03edd331680d70b08318" title="Metoda za provjeru uspjeha vježbe." alt="" coords="109,304,230,329"/>
 <area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="39,179,62,232,81,263,106,289,113,295,110,299,102,293,77,266,57,234,34,181"/>
 <area shape="rect" id="Node000005" href="$dc/d31/src_2display_8cpp.html#af09d5fc5c5db7b9a22727e3968596d6f" title=" " alt="" coords="443,129,554,155"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="357,201,432,164,447,157,449,162,434,168,360,206"/>
-<area shape="rect" id="Node000007" href="$de/dfb/src_2main_8cpp.html#aad45d46e092cdfd9ff1358af21f034e7" title=" " alt="" coords="433,179,564,204"/>
+<area shape="rect" id="Node000007" href="$de/dfb/src_2main_8cpp.html#aad45d46e092cdfd9ff1358af21f034e7" title="Metoda za pretvorbu stanja sustava u String varijablu." alt="" coords="433,179,564,204"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="385,206,419,201,420,206,386,211"/>
-<area shape="rect" id="Node000008" href="$de/dfb/src_2main_8cpp.html#ad990305d1f0a12b371fc29d186728dff" title=" " alt="" coords="446,228,551,253"/>
+<area shape="rect" id="Node000008" href="$de/dfb/src_2main_8cpp.html#ad990305d1f0a12b371fc29d186728dff" title="Meteda za slanje volumena ciklusa korištenjem MQTT protokola." alt="" coords="446,228,551,253"/>
 <area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="386,221,433,228,432,234,385,227"/>
-<area shape="rect" id="Node000011" href="$de/dfb/src_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb" title=" " alt="" coords="439,277,558,303"/>
+<area shape="rect" id="Node000011" href="$de/dfb/src_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb" title="Metoda za spremanje rezultata u trajnu memoriju (NVS)" alt="" coords="439,277,558,303"/>
 <area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="361,227,434,262,452,270,450,274,432,267,359,232"/>
 <area shape="rect" id="Node000006" href="$dc/d31/src_2display_8cpp.html#ad286004164ffbf20a55ce68e87b3cbd3" title=" " alt="" coords="635,104,675,129"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="554,130,621,119,622,125,555,136"/>
 <area shape="rect" id="Node000009" href="$de/dfb/src_2main_8cpp.html#aee63e84c606cfaefce454689113c636c" title=" " alt="" coords="747,228,805,253"/>
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="552,238,733,238,733,243,552,243"/>
-<area shape="rect" id="Node000010" href="$de/dfb/src_2main_8cpp.html#a4bcd6ce7d04c38f8c4ff908d1fc50f86" title=" " alt="" coords="612,203,699,228"/>
+<area shape="rect" id="Node000010" href="$de/dfb/src_2main_8cpp.html#a4bcd6ce7d04c38f8c4ff908d1fc50f86" title="Metoda za ponovni pokušaj uspostavljanja veze." alt="" coords="612,203,699,228"/>
 <area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="551,230,598,222,599,227,552,235"/>
 <area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="700,222,734,229,733,234,699,227"/>
 <area shape="poly" id="edge14_Node000012_Node000006" title=" " alt="" coords="230,114,622,114,622,119,230,119"/>
 <area shape="rect" id="Node000013" href="$dc/d31/src_2display_8cpp.html#af32d2e917f8d885b8ec4f998b15bd4a1" title=" " alt="" coords="309,129,359,155"/>
 <area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="230,123,295,133,294,139,230,129"/>
 <area shape="poly" id="edge18_Node000016_Node000004" title=" " alt="" coords="207,301,233,289,273,263,306,236,310,241,276,267,236,294,209,306"/>
-<area shape="rect" id="Node000017" href="$de/dfb/src_2main_8cpp.html#a24a3f8b02031d8b11845a3a8cf8e0606" title=" " alt="" coords="297,304,371,329"/>
+<area shape="rect" id="Node000017" href="$de/dfb/src_2main_8cpp.html#a24a3f8b02031d8b11845a3a8cf8e0606" title="Metoda za provjeru stabilnosti udaha." alt="" coords="297,304,371,329"/>
 <area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="230,314,283,314,283,319,230,319"/>
 </map>

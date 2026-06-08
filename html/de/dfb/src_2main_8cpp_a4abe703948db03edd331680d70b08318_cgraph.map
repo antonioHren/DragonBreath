@@ -1,22 +1,22 @@
 <map id="updateExercise" name="updateExercise">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,127,131"/>
-<area shape="rect" id="Node000002" href="$de/dfb/src_2main_8cpp.html#a903c5ec1f682a02fdf7213d99031ff8b" title=" " alt="" coords="175,80,277,105"/>
+<area shape="rect" id="Node000001" title="Metoda za provjeru uspjeha vježbe." alt="" coords="5,105,127,131"/>
+<area shape="rect" id="Node000002" href="$de/dfb/src_2main_8cpp.html#a903c5ec1f682a02fdf7213d99031ff8b" title="Metoda za promjenu stanja sustava." alt="" coords="175,80,277,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,106,160,100,161,106,127,111"/>
-<area shape="rect" id="Node000010" href="$de/dfb/src_2main_8cpp.html#a24a3f8b02031d8b11845a3a8cf8e0606" title=" " alt="" coords="189,129,263,155"/>
+<area shape="rect" id="Node000010" href="$de/dfb/src_2main_8cpp.html#a24a3f8b02031d8b11845a3a8cf8e0606" title="Metoda za provjeru stabilnosti udaha." alt="" coords="189,129,263,155"/>
 <area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="127,124,175,132,175,137,126,130"/>
 <area shape="rect" id="Node000003" href="$dc/d31/src_2display_8cpp.html#af09d5fc5c5db7b9a22727e3968596d6f" title=" " alt="" coords="335,5,446,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,77,324,40,339,33,341,38,326,44,252,82"/>
-<area shape="rect" id="Node000005" href="$de/dfb/src_2main_8cpp.html#aad45d46e092cdfd9ff1358af21f034e7" title=" " alt="" coords="325,55,456,80"/>
+<area shape="rect" id="Node000005" href="$de/dfb/src_2main_8cpp.html#aad45d46e092cdfd9ff1358af21f034e7" title="Metoda za pretvorbu stanja sustava u String varijablu." alt="" coords="325,55,456,80"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="277,82,311,77,312,82,278,87"/>
-<area shape="rect" id="Node000006" href="$de/dfb/src_2main_8cpp.html#ad990305d1f0a12b371fc29d186728dff" title=" " alt="" coords="338,104,443,129"/>
+<area shape="rect" id="Node000006" href="$de/dfb/src_2main_8cpp.html#ad990305d1f0a12b371fc29d186728dff" title="Meteda za slanje volumena ciklusa korištenjem MQTT protokola." alt="" coords="338,104,443,129"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="278,97,325,104,324,110,277,103"/>
-<area shape="rect" id="Node000009" href="$de/dfb/src_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb" title=" " alt="" coords="331,153,450,179"/>
+<area shape="rect" id="Node000009" href="$de/dfb/src_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb" title="Metoda za spremanje rezultata u trajnu memoriju (NVS)" alt="" coords="331,153,450,179"/>
 <area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="256,103,279,114,326,138,344,146,342,151,324,143,276,119,253,108"/>
 <area shape="rect" id="Node000004" href="$dc/d31/src_2display_8cpp.html#ad286004164ffbf20a55ce68e87b3cbd3" title=" " alt="" coords="527,5,567,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,15,514,15,514,21,446,21"/>
 <area shape="rect" id="Node000007" href="$de/dfb/src_2main_8cpp.html#aee63e84c606cfaefce454689113c636c" title=" " alt="" coords="639,105,697,131"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="444,114,625,115,625,120,444,120"/>
-<area shape="rect" id="Node000008" href="$de/dfb/src_2main_8cpp.html#a4bcd6ce7d04c38f8c4ff908d1fc50f86" title=" " alt="" coords="504,131,591,156"/>
+<area shape="rect" id="Node000008" href="$de/dfb/src_2main_8cpp.html#a4bcd6ce7d04c38f8c4ff908d1fc50f86" title="Metoda za ponovni pokušaj uspostavljanja veze." alt="" coords="504,131,591,156"/>
 <area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="444,123,491,131,490,136,443,128"/>
 <area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="591,132,625,124,626,130,592,137"/>
 </map>

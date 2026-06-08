@@ -4,9 +4,9 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,77,111,40,127,32,129,37,113,44,55,82"/>
 <area shape="rect" id="Node000003" href="$dc/d31/src_2display_8cpp.html#a8d41c12af4f6e6faad84e1f21f99b3e1" title=" " alt="" coords="121,55,219,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="64,85,107,76,108,82,65,90"/>
-<area shape="rect" id="Node000006" href="$de/dfb/src_2main_8cpp.html#a1728ec0948de8876cbec30f12213d779" title=" " alt="" coords="112,104,228,129"/>
+<area shape="rect" id="Node000006" href="$de/dfb/src_2main_8cpp.html#a1728ec0948de8876cbec30f12213d779" title="Metoda za čitanje rezultata iz trajne memorije." alt="" coords="112,104,228,129"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="65,95,99,101,98,107,64,100"/>
-<area shape="rect" id="Node000007" href="$de/dfb/src_2main_8cpp.html#af6e7d7e3ea9cf1c85dafeb443bbfb083" title=" " alt="" coords="131,153,209,179"/>
+<area shape="rect" id="Node000007" href="$de/dfb/src_2main_8cpp.html#af6e7d7e3ea9cf1c85dafeb443bbfb083" title="Metoda zvana prekidom za resetiranje ESP32." alt="" coords="131,153,209,179"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="56,103,113,138,127,145,124,150,111,143,54,108"/>
 <area shape="rect" id="Node000004" href="$dc/d31/src_2display_8cpp.html#af32d2e917f8d885b8ec4f998b15bd4a1" title=" " alt="" coords="276,31,327,56"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="218,56,262,48,263,53,219,61"/>
