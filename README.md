@@ -22,10 +22,17 @@ DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način si
 
 # Tehnologije
 
-#Instalcija
+- Simulacijsko okruženje: Wokwi
+- Platforma: ESP32
+- Framework: Arduino
+- Jezik: C/C++
+
 # Članovi tima 
-> Popis članova tima/linkovi/ glavni doprinos
->
+| Ime | Osobni GitHub | Doprinos |
+|-----|--------|----------|
+| Antonio Hren | [GitHub-Hren](https://github.com/antonioHren/RUS--Hren) | Čitanje potenciometra, filtriranje signala i numerička integracija |
+| Mislav Maljković | [GitHub-Maljkovic](https://github.com/mislavmalj/RUS--Maljkovic) | IoT povezivost (Wi-Fi i NVS), bodovanje i dokumentacija |
+| Stefan Vedrina | [GitHub-Vedrina](https://github.com/StefanVedrina/RUS--Vedrina) | OLED prikaz i logika stanja igre |
 
 # Kontribucije
 >Pravila ovise o organizaciji tima i su često izdvojena u CONTRIBUTING.md
