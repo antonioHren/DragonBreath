@@ -34,9 +34,6 @@ DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način si
 | Mislav Maljković | [GitHub-Maljkovic](https://github.com/mislavmalj/RUS--Maljkovic) | IoT povezivost (Wi-Fi i NVS), bodovanje i dokumentacija |
 | Stefan Vedrina | [GitHub-Vedrina](https://github.com/StefanVedrina/RUS--Vedrina) | OLED prikaz i logika stanja igre |
 
-# Kontribucije
->Pravila ovise o organizaciji tima i su često izdvojena u CONTRIBUTING.md
-
 
 
 # 📝 Kodeks ponašanja [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
