@@ -50,50 +50,50 @@
 #define OLED_RESET -1
 
 // Definiranje SDA i SCL pinova OLED-a
-#define I2C_SDA 8
-#define I2C_SCL 9
+#define I2C_SDA 8                  ///< SDA Pin OLED zaslona
+#define I2C_SCL 9                  ///< SCL Pin OLED zaslona
 
 // Konstanta za zaglađivanje signala (Exponential Moving Average)
-const float EMA_ALPHA = 0.15;
+const float EMA_ALPHA = 0.15;      ///< Konstanta za zaglađivanje signala (Exponential Moving Average)
 
 // Granice željnog protoka
-const float FLOW_THRESHOLD_SUCCESS = 900.0;
-const float FLOW_THRESHOLD_FAIL = 1200.0;
+const float FLOW_THRESHOLD_SUCCESS = 900.0;    ///< Gornja granice željnog protoka
+const float FLOW_THRESHOLD_FAIL = 1200.0;      ///< Doljnja granice željnog protoka
 
 // Vremenske granice uspješnog udaha
-const unsigned long SUCCESS_TIME = 5000; // 5 s
+const unsigned long SUCCESS_TIME = 5000; // 5 s       ///< Vrijeme potrebne stabilnosti u optimalnom području
 const unsigned long LOW_FLOW_TIME = 5000; 
 
 // Vrijednosti protoka daha
-float filteredADC = 2048.0;
-float flowRate = 0.0;
-float volume = 0.0;
+float filteredADC = 2048.0;             
+float flowRate = 0.0;             ///< Protok u ml/s
+float volume = 0.0;               ///< Volumen zraka u ml
 
 // Varijable stabilnosti daha
-float avgFlow = 0.0;
-bool firstStableRun = true;
+float avgFlow = 0.0;              ///< Srednji protok
+bool firstStableRun = true;       ///< Boolean za stabilnost
 
 // Uspješnost vježbe
 bool exerciseSuccess = false;
 bool exerciseFailed = false;
 
 // Varijable za mjerenje vremena uz millis()
-unsigned long previousTime = 0;
-unsigned long successStartTime = 0;
-unsigned long lowFlowStartTime = 0;
+unsigned long previousTime = 0;          ///< Varijable za mjerenje vremena uz millis()
+unsigned long successStartTime = 0;      ///< Varijable za mjerenje vremena uz millis()
+unsigned long lowFlowStartTime = 0;      ///< Varijable za mjerenje vremena uz millis()
 
 // Rezultat
-int score = 0;
-int highScore = 0;
-bool tooStrongFail = true;
+int score = 0;                            ///< Trenutni rezultat
+int highScore = 0;                        ///< Najveći rezultat
+bool tooStrongFail = true;                ///< Koja vrsta nuspjeha, true - gornja granica, false - doljnja granica
 
 // Trenutno stanje vježbe
-GameState currentState = IDLE;
+GameState currentState = IDLE;            ///< Trenutno stanje sustava
 
 // Podaci o mreži i broker za testiranje MQTT
-const char* ssid = "Wokwi-GUEST";
-const char* password = "";
-const char* mqtt_server = "broker.hivemq.com";
+const char* ssid = "Wokwi-GUEST";                            ///< Default Wokwi ssid
+const char* password = "";                                   ///< Default Wokwi password
+const char* mqtt_server = "broker.hivemq.com";               ///< Endpoint za testiranje mqtt poziva
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -101,11 +101,15 @@ long currentTime = 0;
 int value = 0;
 
 // Varijable potrebne za trajnu memoriju
-Preferences prefLib;
+Preferences prefLib;                                          ///< Varijable potrebne za trajnu memoriju
 
 
-
-// Metoda za ponovni pokušaj uspostavljanja veze
+/**
+ * @brief Metoda za ponovni pokušaj uspostavljanja veze
+ *
+ * Metoda uspostavlja ponovnu vezu između mikrokontrolera i prije definiranog endpointa
+ * Zove se samo pri slanju volumena
+ */
 void reconnect() 
 {
   if (!client.connected()) {
@@ -121,8 +125,12 @@ void reconnect()
   }
 }
 
-
-// Meteda za slanje volumena ciklusa korištenjem MQTT protokola
+/**
+ * @brief Meteda za slanje volumena ciklusa korištenjem MQTT protokola
+ *
+ * Metoda uzima volumen koji publisha kao ulaz
+ * Publish se odrađuje funkcijom clint.publish()
+ */
 void publishScore(int score)
 {
   while (!client.connected()) {
@@ -135,8 +143,12 @@ void publishScore(int score)
   Serial.println(" ml");
 }
 
-
-// Metoda za spremanje rezultata u trajnu memoriju (NVS)
+/**
+ * @brief Metoda za spremanje rezultata u trajnu memoriju (NVS)
+ *
+ * Metoda uzima rezultat kao ulaz
+ * Otvara trajnu memoriju i sprema uz pomoć Preferences biblioteke
+ */
 void saveHighScore(int score)
 {
   prefLib.begin("dragonGame", false);
@@ -146,8 +158,11 @@ void saveHighScore(int score)
   Serial.println(score);
 }
 
-
-// Metoda za čitanje rezultata iz trajne memorije
+/**
+ * @brief Metoda za čitanje rezultata iz trajne memorije
+ *
+ * Uz pomoć Preferences bibilioteke učitava podatke iz trajne memorije
+ */
 int loadHighScore()
 {
   prefLib.begin("dragonGame", true);
@@ -159,8 +174,10 @@ int loadHighScore()
   return highScore;
 }
 
-
-// Metoda za očitavanje i filtriranje izlaza potenciometra
+/**
+ * @brief Metoda za očitavanje i filtriranje izlaza potenciometra
+ *
+ */
 void readSensor()
 {
     int raw = analogRead(POT_PIN);
@@ -170,8 +187,10 @@ void readSensor()
         (1.0 - EMA_ALPHA) * filteredADC;
 }
 
-
-// Metoda za prevođenje vrijednosti potenciometra u protok zraka
+/**
+ * @brief Metoda za prevođenje vrijednosti potenciometra u protok zraka
+ *
+ */
 void calculateFlow()
 {
     if (filteredADC <= 2048)
@@ -186,8 +205,10 @@ void calculateFlow()
         * 1500.0;
 }
 
-
-// Metoda za računanje ukupnog volumena ciklusa
+/**
+ * @brief  Metoda za računanje ukupnog volumena ciklusa
+ *
+ */
 void calculateVolume()
 {
     unsigned long now = millis();
@@ -200,8 +221,10 @@ void calculateVolume()
     volume += flowRate * dt;
 }
 
-
-// Metoda za provjeru stabilnosti udaha
+/**
+ * @brief  Metoda za provjeru stabilnosti udaha
+ *
+ */
 bool isStable()
 {
     if(firstStableRun)
@@ -217,8 +240,10 @@ bool isStable()
     return abs(flowRate - avgFlow) < 70;
 }
 
-
-// Metoda za pretvorbu stanja sustava u String varijablu
+/**
+ * @brief  Metoda za pretvorbu stanja sustava u String varijablu
+ *
+ */
 String getStateAsString() 
 {
     switch(currentState) {
@@ -233,8 +258,10 @@ String getStateAsString()
     }
 }
 
-
-// Metoda za promjenu stanja sustava
+/**
+ * @brief  Metoda za promjenu stanja sustava
+ *
+ */
 void changeState(GameState newState) 
 {
   if (currentState == newState) return;
@@ -274,7 +301,10 @@ void changeState(GameState newState)
 }
 
 
-// Metoda za provjeru uspjeha vježbe
+/**
+ * @brief  Metoda za provjeru uspjeha vježbe
+ *
+ */
 void updateExercise()
 {
 
@@ -342,8 +372,10 @@ void updateExercise()
     }
 }
 
-
-// Metoda za reset podataka ciklusa
+/**
+ * @brief  Metoda za reset podataka ciklusa
+ *
+ */
 void resetExercise()
 {
     exerciseSuccess = false;
@@ -358,8 +390,10 @@ void resetExercise()
 
 }
 
-
-// Metoda zvana prekidom za resetiranje ESP32
+/**
+ * @brief  Metoda zvana prekidom za resetiranje ESP32
+ *
+ */
 void resetESP(){
     Serial.println("\n Reset mikrokontrolera!s");
     WiFi.disconnect();
