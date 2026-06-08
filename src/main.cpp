@@ -1,3 +1,41 @@
+/**
+* # DragonBreath - Kontrola zmajeve vatre spirometrom 
+*
+* # Opis projekta
+* Ovaj projekt je reultat timskog rada u sklopu projeknog zadatka kolegija Razvoj ugradbenih sustava  na Tehničkom veleučilištu u Zagrebu. 
+*
+* DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način simuliranja rada medicinskog spirometra. Emuliranjem spirometra kroz potenciometar, korisnik udiše (okreće potenciometar), te pokušava protok zraka održati u optimalnoj zoni. Cilj projekta je gamifikacija rada spirometra, jednako koliko i njegovo funkcionalno ponašanje, te je korisnik nagrađen bodovima nakon uspješne odrade zadatka. 
+*
+*
+*
+* # Funkcijski zahtjevi
+* - Čitanje vrijednosti potenciometra (12-bit ADC)
+* - Zaglađivanje signala eksponencijalnim kliznim prosjekom
+* -Izračun protoka i volumena simuliranog udaha
+* - Prikaz tri praga aktivacije na OLED zaslonu (600, 900 i 1200 ml/s)
+* - Logika optimalne zone protoka zraka u vremenskom okviru (900 < opt. < 1200 ml/s unutar 5s)
+* - Implementacija kazne u slučaju pre slabog ili pre jakog protoka
+* - Prikaz uspješnosti/neuspješnosti vježbe korisiniku
+* - Brojanje i prikaz uspješno odrađenih ciklusa vježbe za redom (bodova)
+* - Spremanje najboljeg rezultata u trajnu memoriju
+* - Slanje ukupno ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
+*
+*
+* # Tehnologije
+*
+* - Simulacijsko okruženje: Wokwi
+* - Platforma: ESP32
+* - Framework: Arduino
+* - Jezik: C/C++
+*
+* # Članovi tima 
+* | Ime | Osobni GitHub | Doprinos |
+* |-----|--------|----------|
+* | Antonio Hren | [GitHub-Hren](https://github.com/antonioHren/RUS--Hren) | Čitanje potenciometra, filtriranje signala i numerička integracija |
+* | Mislav Maljković | [GitHub-Maljkovic](https://github.com/mislavmalj/RUS--Maljkovic) | IoT povezivost (Wi-Fi i NVS), bodovanje i dokumentacija |
+* | Stefan Vedrina | [GitHub-Vedrina](https://github.com/StefanVedrina/RUS--Vedrina) | OLED prikaz i logika stanja igre |
+*/
+
 #include <Arduino.h>
 #include <Preferences.h>
 #include <WiFi.h>
@@ -5,10 +43,10 @@
 #include "display.h"
 
 // Definiranje pinova potenciometra, gumba i rezoluciju OLED-a
-#define POT_PIN 34
-#define RESET_BUTTON_PIN 25
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
+#define POT_PIN 34                 ///< Pin za analogni potenciometar
+#define RESET_BUTTON_PIN 25        ///< Pin za ESP reset gumb
+#define SCREEN_WIDTH 128           ///< Sirina OLED zaslona
+#define SCREEN_HEIGHT 64           ///< Visina OLED zaslona
 #define OLED_RESET -1
 
 // Definiranje SDA i SCL pinova OLED-a
