@@ -22,7 +22,7 @@ USE_MDFILE_AS_MAINPAGE = README.md                   # Koristi README.md kao po�
 #-----------------------------------------------------------------------------
 INPUT                  = .                           # Tra탑i u trenutnom direktoriju
 RECURSIVE              = YES                         # Uklju훾i sve poddirektorije
-FILE_PATTERNS          = *.c *.h *.ino               # Priznate ekstenzije (uklju훾uju Arduino .ino)
+FILE_PATTERNS          = *.c *.h *.ino *.cpp         # Priznate ekstenzije (uklju훾uju Arduino .ino)
 EXTENSION_MAPPING      = ino=c                       # Mapiraj .ino kao C datoteke (sintaksno)
 
 #-----------------------------------------------------------------------------
