@@ -8,16 +8,16 @@ DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način si
 
 
 # Funkcijski zahtjevi
-> Čitanje vrijednosti potenciometra (12-bit ADC)
-> Zaglađivanje signala eksponencijalnim kliznim prosjekom
-> Izračun protoka i volumena simuliranog udaha
-> Prikaz tri praga aktivacije na OLED zaslonu (600, 900 i 1200 ml/s)
-> Logika optimalne zone protoka zraka u vremenskom okviru (900 < opt. < 1200 ml/s unutar 5s)
-> Implementacija kazne u slučaju pre slabog ili pre jakog protoka
-> Prikaz uspješnosti/neuspješnosti vježbe korisiniku
-> Brojanje uspješno odrađenih ciklusa vježbe za redom
-> Spremanje najboljeg rezultata trajnu memoriju
-> Slanje ukupnog ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
+- Čitanje vrijednosti potenciometra (12-bit ADC)
+- Zaglađivanje signala eksponencijalnim kliznim prosjekom
+- Izračun protoka i volumena simuliranog udaha
+- Prikaz tri praga aktivacije na OLED zaslonu (600, 900 i 1200 ml/s)
+- Logika optimalne zone protoka zraka u vremenskom okviru (900 < opt. < 1200 ml/s unutar 5s)
+- Implementacija kazne u slučaju pre slabog ili pre jakog protoka
+- Prikaz uspješnosti/neuspješnosti vježbe korisiniku
+- Brojanje uspješno odrađenih ciklusa vježbe za redom
+- Spremanje najboljeg rezultata trajnu memoriju
+- Slanje ukupnog ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
 
 
 # Tehnologije
