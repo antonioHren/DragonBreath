@@ -1,0 +1,88 @@
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Conncting to WiFi
+.Connection successful
+[  1520][E][Preferences.cpp:50] begin(): nvs_open failed: NOT_FOUND
+High score ucitan: 0
+Spirometer logic started
+
+------------ Početak vježbe -------------
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 6407.92 ml
+Changed state: INHALE => SUCCESS
+Changed state: SUCCESS => IDLE
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 1029.58 ml
+Broj bodova: 1
+------------ Kraj Vježbe -------------
+
+Changed state: INHALE => FAILED
+Novi high score spremljen: 1
+
+------------ Početak vježbe -------------
+Changed state: FAILED => IDLE
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 5867.49 ml
+Changed state: INHALE => SUCCESS
+Changed state: SUCCESS => IDLE
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 6839.71 ml
+Changed state: INHALE => SUCCESS
+Changed state: SUCCESS => IDLE
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 957.10 ml
+Broj bodova: 2
+------------ Kraj Vježbe -------------
+
+Changed state: INHALE => FAILED
+Novi high score spremljen: 2
+
+------------ Po  etak vježbe -------------
+Changed state: FAILED => IDLE
+
+ Reset mikrokontrolera!s
+ets Jul 29 2019 12:21:46
+
+rst:0x8 (TG1WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Conncting to WiFi
+E (13072) phy_init: load_cal_data_from_nvs_handle: calibration data MAC check failed: expected 00:00:00:00:00:00, found 24:0a:c4:00:01:10
+.Connection successful
+High score ucitan: 2
+Spirometer logic started
+
+------------ Početak vježbe -------------
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 6118.08 ml
+Changed state: INHALE => SUCCESS
+Changed state: SUCCESS => IDLE
+Changed state: IDLE => INHALE
+Attempting MQTT connection...connected
+Ukupni volumen ciklusa poslan: 564.79 ml
+Broj bodova: 1
+------------ Kraj Vježbe -------------
+
+Changed state: INHALE => FAILED
+
+------------ Početak vježbe -------------
+Changed state: FAILED => IDLE
