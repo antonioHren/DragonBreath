@@ -1,0 +1,164 @@
+#include "display.h"
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <TM1637.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+// Definiranje SDA i SCL pinova
+#define I2C_SDA 4
+#define I2C_SCL 5
+
+// Definiranje CLK i DIO pinova 4-digit display-a
+#define FDD_CLK 19
+#define FDD_DIO 18
+
+TM1637 tm(FDD_CLK, FDD_DIO);
+
+
+Adafruit_SSD1306 oled(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// Ikona zmaja (32x32)
+const unsigned char epd_bitmap_dragon [] PROGMEM = {
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0xc1, 0x00, 0x00, 0x03, 0x3b, 0x00, 0x00, 
+0x01, 0x1d, 0x80, 0x00, 0x03, 0xd5, 0x80, 0x00, 0x01, 0x3a, 0x40, 0x00, 0x01, 0x06, 0x40, 0x00, 
+0x00, 0x83, 0x30, 0x00, 0x01, 0xc1, 0x90, 0x00, 0x1e, 0xf1, 0x48, 0x00, 0x18, 0x8c, 0x66, 0x00, 
+0x08, 0x87, 0x15, 0x00, 0x1d, 0x04, 0x81, 0x80, 0x12, 0x46, 0x40, 0x80, 0x12, 0xc6, 0x00, 0x40, 
+0x22, 0x86, 0x07, 0xc0, 0x34, 0x86, 0x05, 0xa0, 0x14, 0xe5, 0x06, 0x90, 0x14, 0x23, 0x11, 0x18, 
+0x24, 0x02, 0x3f, 0x84, 0x24, 0x01, 0x10, 0xc4, 0x24, 0x01, 0xc8, 0x63, 0x32, 0x21, 0x2c, 0x31, 
+0x0a, 0x3e, 0x16, 0x12, 0x09, 0x1c, 0x13, 0x9c, 0x09, 0x00, 0x08, 0xc0, 0x08, 0x80, 0x04, 0x60, 
+0x08, 0xc0, 0x03, 0xc0, 0x09, 0x80, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
+};
+
+const unsigned char epd_bitmap_dragon_open [] PROGMEM = {
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x1e, 0x38, 0x00, 0x00, 
+0x0f, 0x1e, 0x00, 0x00, 0x0f, 0x0f, 0x00, 0x00, 0x0f, 0xc7, 0x80, 0x00, 0x07, 0xf7, 0x80, 0x00, 
+0x01, 0xff, 0xe0, 0x00, 0x00, 0x39, 0x38, 0x00, 0x01, 0xec, 0x0e, 0x00, 0x00, 0xfa, 0x03, 0x80, 
+0x01, 0x8e, 0x7c, 0xe0, 0x03, 0x40, 0x04, 0x38, 0x06, 0x64, 0x00, 0x0c, 0x0d, 0xa1, 0x3c, 0x04, 
+0x1e, 0x12, 0x66, 0x1c, 0x14, 0x10, 0x13, 0xf8, 0x18, 0x10, 0x18, 0x00, 0x0c, 0x18, 0x0c, 0x00, 
+0x0c, 0x14, 0x07, 0x00, 0x0a, 0x1f, 0x01, 0xc0, 0x0e, 0x0f, 0xfc, 0x60, 0x0e, 0x07, 0x87, 0xe0, 
+0x0f, 0x09, 0x81, 0xe0, 0x07, 0x83, 0x80, 0x00, 0x00, 0xc0, 0xc0, 0x00, 0x00, 0xe0, 0x40, 0x00, 
+0x00, 0x74, 0xa0, 0x00, 0x00, 0x1f, 0x30, 0x00, 0x00, 0x01, 0xf0, 0x00, 0x00, 0x00, 0x20, 0x00
+};
+
+// Varijabla za inerciju
+float currentDisplayFlow = 0; 
+const float INERTIA_FACTOR = 0.5; // Veći broj = brži odziv, manji = tromije/glađe
+
+void display_init() {
+  // Inicijalizacija I2C sabirnice s tvojim pinovima
+  Wire.begin(I2C_SDA, I2C_SCL);
+
+  if(!oled.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("OLED inicijalizacija nije uspjela!"));
+    for(;;); // Blokiraj ako ekran ne radi
+  }
+  
+  oled.clearDisplay();
+  oled.setTextColor(WHITE);
+
+  // Inicijalizacija FDD
+  tm.init();
+  tm.setBrightness(3);
+  tm.display(0);
+}
+
+void counter_reset(){
+  tm.clearScreen();
+  tm.display(0);
+}
+
+void display_update(GameState state, float targetFlow, float duration, int score, bool isNewHigh, bool tooStrongFail) {
+  // 1. Matematički model inercije (zaglađivanje)
+  currentDisplayFlow += (targetFlow - currentDisplayFlow) * INERTIA_FACTOR;
+
+  oled.clearDisplay();
+
+  // Ovisno o stanju igre, crtamo različite stvari
+  switch(state) {
+    
+    case IDLE:
+    {
+      oled.drawBitmap(10, 20, epd_bitmap_dragon, 32, 32, WHITE);
+      oled.setCursor(50, 30);
+      oled.print(F("Cekam udah..."));
+      break;
+    }
+
+    case INHALE: {
+      // A) Crtanje zmaja
+      oled.drawBitmap(5, 20, epd_bitmap_dragon_open, 32, 32, WHITE);
+
+      // B) Crtanje plamena (dinamička širina ovisno o protoku)
+      {
+        int flameLength = map(currentDisplayFlow, 0, 1200, 0, 60);
+        flameLength = constrain(flameLength, 0, 60);
+        // Crtamo seriju linija/krugova da izgleda kao vatreni mlaz
+        for(int i = 0; i < flameLength; i+=4) {
+           oled.fillCircle(40 + i, 36, random(2, 6), WHITE); 
+        }
+      }
+
+      // C) Coach Indikator (Vertikalna traka na desnoj strani)
+      // Okvir indikatora
+      oled.drawRect(115, 5, 10, 54, WHITE);
+      
+      // Ciljna zona (900 ml/s) -> pretvoreno u Y koordinate
+      int targetY = map(900, 0, 1200, 54, 5);
+      oled.drawFastHLine(110, targetY, 20, WHITE); 
+      oled.drawFastHLine(110, targetY+2, 20, WHITE); // Podebljana linija za 900ml/s
+
+      // Pokretni marker protoka
+      int markerY = map(currentDisplayFlow, 0, 1200, 54, 5);
+      markerY = constrain(markerY, 5, 54);
+      oled.fillRect(115, markerY - 2, 10, 4, WHITE);
+
+      // D) Timer
+      oled.setCursor(0, 0);
+      oled.print(F("Vrijeme: "));
+      oled.print(duration, 1);
+      oled.print(F("ms"));
+      break;
+    }
+
+    case SUCCESS:
+    {
+      oled.setCursor(15, 25);
+      oled.setTextSize(1);
+      oled.print(F("Zmaj istreniran!"));
+      oled.setTextSize(1);
+
+      tm.display(score);
+      break;
+    }
+    
+    case FAILED:
+    {
+      oled.setCursor(15, 20);
+      oled.setTextSize(2);
+      oled.print(F("BOOM!"));
+      oled.setTextSize(1);
+      oled.setCursor(15, 45);
+
+      if(isNewHigh){
+        oled.print(F("Novi rekord!"));
+      }else{
+
+        if(tooStrongFail){
+          oled.print(F("Prejak udah!"));
+        }else{
+          oled.print(F("Pre slab udah!"));
+        }
+
+      }
+
+      break;
+    }
+  }
+
+  // Slanje u međuspremnik zaslona
+  oled.display();
+}
