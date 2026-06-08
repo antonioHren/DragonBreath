@@ -16,7 +16,7 @@ DragonBreath koristi arhitekturu temeljenu na stanju. Svaka komponenta ima defin
 | Memorijski | NVS (Non-Volatile storage) memorija | Trajna memorija za spremanje najvišeg dosegnutog rezultata |
 
 ## Mrežni protokoli
-U svrhu slanja vrijednosti volumena ovaj projekt koristi MTQQ protokol. Koristi se jer je jednostavan i brz, te često korišten u manjim uređajima niske potrošnje. Za njegovu implementaciju se koristi biblioteka PubSubClient.
+U svrhu slanja vrijednosti volumena ovaj projekt koristi MTQQ (Message Queuing Telemetry Transport) protokol. Koristi se jer je jednostavan i brz, te često korišten u manjim uređajima niske potrošnje. Za njegovu implementaciju se koristi biblioteka PubSubClient.
 
 ## Dijagram stanja
 <img width="616" height="415" alt="image" src="https://github.com/user-attachments/assets/274db9e3-9a55-47f1-8aa3-f4bc5582b6c4" />
