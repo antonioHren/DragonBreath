@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['savehighscore_0',['savehighscore',['../dc/df9/wokwi_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb',1,'saveHighScore(int score):&#160;main.cpp'],['../de/dfb/src_2main_8cpp.html#a6ead30f0400ac8bf85395dada2b87efb',1,'saveHighScore(int score):&#160;main.cpp']]],
+  ['score_1',['score',['../de/dfb/src_2main_8cpp.html#aef160b7437d94056f1dc59646cd5b87d',1,'score:&#160;main.cpp'],['../dc/df9/wokwi_2main_8cpp.html#aef160b7437d94056f1dc59646cd5b87d',1,'score:&#160;main.cpp']]],
+  ['screen_5fheight_2',['screen_height',['../dc/d31/src_2display_8cpp.html#a6974d08a74da681b3957b2fead2608b8',1,'SCREEN_HEIGHT:&#160;display.cpp'],['../de/dfb/src_2main_8cpp.html#a6974d08a74da681b3957b2fead2608b8',1,'SCREEN_HEIGHT:&#160;main.cpp'],['../dd/deb/wokwi_2display_8cpp.html#a6974d08a74da681b3957b2fead2608b8',1,'SCREEN_HEIGHT:&#160;display.cpp'],['../dc/df9/wokwi_2main_8cpp.html#a6974d08a74da681b3957b2fead2608b8',1,'SCREEN_HEIGHT:&#160;main.cpp']]],
+  ['screen_5fwidth_3',['screen_width',['../dc/df9/wokwi_2main_8cpp.html#a2cd109632a6dcccaa80b43561b1ab700',1,'SCREEN_WIDTH:&#160;main.cpp'],['../dd/deb/wokwi_2display_8cpp.html#a2cd109632a6dcccaa80b43561b1ab700',1,'SCREEN_WIDTH:&#160;display.cpp'],['../de/dfb/src_2main_8cpp.html#a2cd109632a6dcccaa80b43561b1ab700',1,'SCREEN_WIDTH:&#160;main.cpp'],['../dc/d31/src_2display_8cpp.html#a2cd109632a6dcccaa80b43561b1ab700',1,'SCREEN_WIDTH:&#160;display.cpp']]],
+  ['setup_4',['setup',['../de/dfb/src_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp'],['../dc/df9/wokwi_2main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'setup():&#160;main.cpp']]],
+  ['spirometrom_5',['DragonBreath - Kontrola zmajeve vatre spirometrom',['../de/dfb/src_2main_8cpp.html#autotoc_md0',1,'']]],
+  ['ssid_6',['ssid',['../de/dfb/src_2main_8cpp.html#a587ba0cb07f02913598610049a3bbb79',1,'ssid:&#160;main.cpp'],['../dc/df9/wokwi_2main_8cpp.html#a587ba0cb07f02913598610049a3bbb79',1,'ssid:&#160;main.cpp']]],
+  ['success_7',['success',['../d2/d67/src_2display_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285ac7f69f7c9e5aea9b8f54cf02870e2bf8',1,'SUCCESS:&#160;display.h'],['../dc/de7/wokwi_2display_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285ac7f69f7c9e5aea9b8f54cf02870e2bf8',1,'SUCCESS:&#160;display.h']]],
+  ['success_5ftime_8',['success_time',['../de/dfb/src_2main_8cpp.html#acdc0b78661093351c3d760aebe3cea47',1,'SUCCESS_TIME:&#160;main.cpp'],['../dc/df9/wokwi_2main_8cpp.html#acdc0b78661093351c3d760aebe3cea47',1,'SUCCESS_TIME:&#160;main.cpp']]],
+  ['successstarttime_9',['successstarttime',['../de/dfb/src_2main_8cpp.html#ac55cece5402cd77b24ab4b35825130cd',1,'successStartTime:&#160;main.cpp'],['../dc/df9/wokwi_2main_8cpp.html#ac55cece5402cd77b24ab4b35825130cd',1,'successStartTime:&#160;main.cpp']]]
+];

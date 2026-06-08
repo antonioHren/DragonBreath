@@ -1,0 +1,10 @@
+<map id="saveHighScore" name="saveHighScore">
+<area shape="rect" id="Node000001" title=" " alt="" coords="424,5,543,31"/>
+<area shape="rect" id="Node000002" href="$de/dfb/src_2main_8cpp.html#a903c5ec1f682a02fdf7213d99031ff8b" title=" " alt="" coords="273,5,376,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="411,21,376,21,376,15,411,15"/>
+<area shape="rect" id="Node000003" href="$de/dfb/src_2main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,21,56,21,56,15,260,15"/>
+<area shape="rect" id="Node000004" href="$de/dfb/src_2main_8cpp.html#a4abe703948db03edd331680d70b08318" title=" " alt="" coords="104,31,225,56"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="260,31,226,36,225,31,259,26"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="90,32,56,25,57,20,91,27"/>
+</map>

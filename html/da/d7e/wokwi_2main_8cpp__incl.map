@@ -1,0 +1,14 @@
+<map id="wokwi/main.cpp" name="wokwi/main.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="128,5,256,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="168,152,252,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,29,79,39,35,54,20,64,11,75,9,88,16,102,44,129,79,146,117,156,154,161,153,166,116,161,78,151,41,133,11,106,4,88,6,73,16,60,33,50,77,34,127,24"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="26,79,137,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,33,113,73,110,69,173,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="161,79,224,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,31,195,65,190,65,190,31"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="248,79,368,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="212,28,279,69,276,74,209,33"/>
+<area shape="rect" id="Node000006" href="$dc/de7/wokwi_2display_8h.html" title=" " alt="" coords="393,79,472,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="232,28,381,72,379,77,230,33"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="397,107,259,150,258,145,396,101"/>
+</map>
