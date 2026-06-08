@@ -15,9 +15,9 @@ DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način si
 - Logika optimalne zone protoka zraka u vremenskom okviru (900 < opt. < 1200 ml/s unutar 5s)
 - Implementacija kazne u slučaju pre slabog ili pre jakog protoka
 - Prikaz uspješnosti/neuspješnosti vježbe korisiniku
-- Brojanje uspješno odrađenih ciklusa vježbe za redom
-- Spremanje najboljeg rezultata trajnu memoriju
-- Slanje ukupnog ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
+- Brojanje i prikaz uspješno odrađenih ciklusa vježbe za redom (bodova)
+- Spremanje najboljeg rezultata u trajnu memoriju
+- Slanje ukupno ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
 
 
 # Tehnologije
