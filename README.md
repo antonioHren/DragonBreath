@@ -3,12 +3,21 @@
 # Opis projekta
 Ovaj projekt je reultat timskog rada u sklopu projeknog zadatka kolegija Razvoj ugradbenih sustava  na Tehničkom veleučilištu u Zagrebu. 
 
-DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način simuliranja rada medicinskog spirometra. Emuliranjem spirometra kroz potenciometar, korisnik udiše (okreće potenciometar), te pokušava protok zraka održati u optimalnoj zoni. Cilj projekta je gamifikacija rada spirometra, jednako koliko i njegovo funkcionalno ponašanje, te je zato korisnik nagrađen bodovima nakon uspjšne odrade zadatka. 
+DragonBreath koristi vizualni prikaz zmaja koji riga vatru kao duhovit način simuliranja rada medicinskog spirometra. Emuliranjem spirometra kroz potenciometar, korisnik udiše (okreće potenciometar), te pokušava protok zraka održati u optimalnoj zoni. Cilj projekta je gamifikacija rada spirometra, jednako koliko i njegovo funkcionalno ponašanje, te je zato korisnik nagrađen bodovima nakon uspješne odrade zadatka. 
 
 
 
 # Funkcijski zahtjevi
-> 
+> Čitanje vrijednosti potenciometra (12-bit ADC)
+> Zaglađivanje signala eksponencijalnim kliznim prosjekom
+> Izračun protoka i volumena simuliranog udaha
+> Prikaz tri praga aktivacije na OLED zaslonu (600, 900 i 1200 ml/s)
+> Logika optimalne zone protoka zraka u vremenskom okviru (900 < opt. < 1200 ml/s unutar 5s)
+> Implementacija kazne u slučaju pre slabog ili pre jakog protoka
+> Prikaz uspješnosti/neuspješnosti vježbe korisiniku
+> Brojanje uspješno odrađenih ciklusa vježbe za redom
+> Spremanje najboljeg rezultata trajnu memoriju
+> Slanje ukupnog ostvarenog volumena Wi-Fi vezom nakon svakog ciklusa
 
 
 # Tehnologije
