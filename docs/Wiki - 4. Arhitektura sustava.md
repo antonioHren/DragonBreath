@@ -5,7 +5,7 @@ DragonBreath koristi arhitekturu temeljenu na stanju. Svaka komponenta ima defin
 
 - Visoka kohezija: Svako stanje ima unaprijed definiranu ulogu
 - Brzo vrijeme odziva i niska povezanost
-- Neblokirajuće: U kodu koristimo millis() umjesto delay()
+- Neblokirajuće: U kodu koristimo `millis()` umjesto `delay()`
 
 ## Podsustavi
 | Podsustav| Komponente| Uloga |
